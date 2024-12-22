@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SubtypeCovariance
 {
-    public interface IEntityRepository<TEntity>
-        where TEntity : Entity
+    public interface IEntityRepository<T> where T : Entity
     {
-        TEntity GetByID(Guid id);
+        void Add(T entity);
+        void Remove(Guid id);
+        T GetById(Guid id);
+        IEnumerable<T> GetAll();
     }
 }
